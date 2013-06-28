@@ -71,34 +71,6 @@ namespace LogMeIn.DependencyResolution
         }
 
         /// <summary>
-        /// The get service.
-        /// </summary>
-        /// <param name="serviceType">
-        /// The service type.
-        /// </param>
-        /// <returns>
-        /// The System.Object.
-        /// </returns>
-        public object GetService(Type serviceType)
-        {
-            if (serviceType == null)
-            {
-                return null;
-            }
-
-            try
-            {
-                return serviceType.IsAbstract || serviceType.IsInterface
-                           ? this.Container.TryGetInstance(serviceType)
-                           : this.Container.GetInstance(serviceType);
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        /// <summary>
         /// The get services.
         /// </summary>
         /// <param name="serviceType">
