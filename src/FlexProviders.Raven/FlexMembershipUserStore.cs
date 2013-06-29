@@ -22,7 +22,7 @@ namespace FlexProviders.Raven
 
         public TUser GetUserByUsername(string username)
         {
-            return _session.Query<TUser>().SingleOrDefault(u => u.Username == username);
+            return _session.Query<TUser>().Customize(f => f.WaitForNonStaleResults()).SingleOrDefault(u => u.Username == username);
         }
 
         public TUser Add(TUser user)

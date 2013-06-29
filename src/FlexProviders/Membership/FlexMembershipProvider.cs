@@ -80,7 +80,7 @@ namespace FlexProviders.Membership
         ///   Creates an account.
         /// </summary>
         /// <param name="user"> The user. </param>
-        public void CreateAccount(TUser user)
+        public TUser CreateAccount(TUser user)
         {
             IFlexMembershipUser existingUser = _userStore.GetUserByUsername(user.Username);
             if (existingUser != null)
@@ -91,15 +91,17 @@ namespace FlexProviders.Membership
             user.Salt = user.Salt ?? _encoder.GenerateSalt();
             user.Password = _encoder.Encode(user.Password, user.Salt);
             _userStore.Add(user);
+            return user;
         }
 
         /// <summary>
         ///   Updates the account.
         /// </summary>
         /// <param name="user"> The user. </param>
-        public void UpdateAccount(TUser user)
+        public TUser UpdateAccount(TUser user)
         {
             _userStore.Save(user);
+            return user;
         }
 
         /// <summary>

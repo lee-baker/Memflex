@@ -25,13 +25,13 @@ namespace FlexProviders.Membership
         ///   Creates an account.
         /// </summary>
         /// <param name="user"> The user. </param>
-        void CreateAccount(TUser user);
+        TUser CreateAccount(TUser user);
 
         /// <summary>
         ///   Updates the account.
         /// </summary>
         /// <param name="user"> The user. </param>
-        void UpdateAccount(TUser user);
+        TUser UpdateAccount(TUser user);
 
         /// <summary>
         ///   Determines whether the specific <paramref name="username" /> has a
